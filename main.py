@@ -37,7 +37,6 @@ def to_tree(arr):
     """
     t = Tree()
     for (parent, child) in arr:
-        t.add_node(parent, child)
         if not t.add_node(parent, child):
             raise Exception('node=', parent, 'not found')
     return t.as_dict()
