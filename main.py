@@ -15,7 +15,7 @@ class Tree:
         :return: bool признак успеха добавления
         """
         if parent not in self.paths:
-            return False
+            raise Exception('node=', parent, 'not found')
         path = self.paths.get(parent)
         child_path = copy.copy(path)
         child_path.append(parent)
@@ -37,8 +37,7 @@ def to_tree(arr):
     """
     t = Tree()
     for (parent, child) in arr:
-        if not t.add_node(parent, child):
-            raise Exception('node=', parent, 'not found')
+        t.add_node(parent, child)
     return t.as_dict()
 
 
