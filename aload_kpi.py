@@ -24,7 +24,7 @@ class ConsoleKpiManager:
     def make_workload(self):
         for interval in self.operators_positions_intervals:
             dates = {'dstart': interval.sdate, 'dstop': interval.edate}
-            oper_wl = AKpiLoaderWorkload(interval.p_uid, month_date=self.monthdate, **dates)
+            oper_wl = AKpiLoaderWorkload(uid=interval.p_uid, month_date=self.monthdate, **dates)
             self._tasks.append(oper_wl.load())
         return self._tasks
 
